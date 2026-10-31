@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise for Appa & Amma | 22 Years of Love</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display, Inter, Noto Sans Tamil -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        burgundy: {
+                            950: '#100206',
+                            900: '#1a050b',
+                            800: '#2b0812',
+                            700: '#420b1b',
+                            600: '#5c0f26',
+                        },
+                        gold: {
+                            100: '#fff7d6',
+                            300: '#f7e08b',
+                            400: '#f3d362',
+                            500: '#e5c158',
+                            600: '#d4af37',
+                            700: '#aa8214',
+                        },
+                        rosegold: {
+                            300: '#f7d0cb',
+                            400: '#e8a598',
+                            500: '#b76e79',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        tamil: ['Noto Sans Tamil', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 25px rgba(212, 175, 55, 0.25)',
+                        'gold-glow-lg': '0 0 50px rgba(212, 175, 55, 0.4)',
+                        'rose-glow': '0 0 25px rgba(183, 110, 121, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Glassmorphism & Custom Effects */
+        .glass-panel {
+            background: rgba(26, 5, 11, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        
+        .glass-card {
+            background: rgba(43, 8, 18, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 193, 88, 0.2);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fff7d6 0%, #f7e08b 25%, #d4af37 60%, #e8a598 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-gradient {
+            border-image: linear-gradient(to bottom right, #d4af37, #5c0f26, #b76e79) 1;
+        }
+
+        /* Ambient Background Film Grain Overlay */
+        .film-grain {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 99;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Smooth Hide/Show Transition Classes */
+        .fade-enter {
+            opacity: 0;
+            transform: scale(0.97) translateY(10px);
+        }
+        .fade-enter-active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-exit {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .fade-exit-active {
+            opacity: 0;
+            transform: scale(1.02) translateY(-10px);
+            transition: opacity 600ms cubic-bezier(0.7, 0, 0.84, 0), transform 600ms cubic-bezier(0.7, 0, 0.84, 0);
+        }
+
+        /* Tamil Typography Polish */
+        .tamil-text {
+            font-family: 'Noto Sans Tamil', sans-serif;
+            line-height: 1.9;
+            letter-spacing: 0.02em;
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #100206;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #420b1b;
+            border-radius: 3px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+
+        /* Ring pulse keyframes */
+        @keyframes pulse-gold {
+            0%, 100% { transform: scale(1); opacity: 0.8; filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6)); }
+            50% { transform: scale(1.08); opacity: 1; filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.9)); }
+        }
+        .animate-pulse-gold {
+            animation: pulse-gold 4s ease-in-out infinite;
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-burgundy-950 text-slate-100 font-sans min-h-screen overflow-x-hidden relative selection:bg-gold-600 selection:text-burgundy-950">
+
+    <!-- Film Grain Overlay -->
+    <div class="film-grain"></div>
+
+    <!-- Background Dynamic Particle Canvas -->
+    <canvas id="particleCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+    <!-- MAIN CONTAINER -->
+    <div id="app" class="relative z-10 min-h-screen flex flex-col justify-between">
+
+        <!-- GLOBAL HEADER / AUDIO CONTROLS (Always accessible) -->
+        <header class="p-4 md:p-6 flex justify-between items-center z-50">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full border border-gold-500/40 flex items-center justify-center bg-burgundy-900/80 shadow-gold-glow">
+                    <i class="fa-solid font-serif text-gold-400 font-bold text-lg">22</i>
+                </div>
+                <div class="hidden sm:block">
+                    <p class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Anniversary Tribute</p>
+                    <p class="text-xs text-rose-200/70 font-serif">2004 — 2026</p>
+                </div>
+            </div>
+
+            <!-- Header Controls Bar -->
+            <div class="flex items-center space-x-2 md:space-x-3">
+                <!-- Music Control Group -->
+                <div class="glass-card rounded-full px-3 py-1.5 flex items-center space-x-2 text-xs md:text-sm border border-gold-500/30">
+                    <button id="btnPlayPause" class="text-gold-400 hover:text-gold-300 transition focus:outline-none p-1" title="Play/Pause Audio" aria-label="Toggle Music">
+                        <i id="musicIcon" class="fa-solid fa-music"></i>
+                    </button>
+                    <span id="trackTitle" class="hidden md:inline text-xs text-rose-100/80 max-w-[100px] truncate">Romantic Melody</span>
+                    
+                    <button id="btnMute" class="text-gold-400/80 hover:text-gold-300 transition focus:outline-none p-1" title="Mute/Unmute" aria-label="Mute Music">
+                        <i id="volumeIcon" class="fa-solid fa-volume-high"></i>
+                    </button>
+
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.6" class="w-12 md:w-16 accent-gold-500 cursor-pointer hidden sm:block" aria-label="Volume Slider">
+                </div>
+
+                <!-- Asset Guide Drawer Trigger -->
+                <button id="btnOpenGuide" class="glass-card hover:bg-burgundy-800/80 text-gold-400 px-3 py-1.5 rounded-full text-xs md:text-sm flex items-center space-x-1.5 border border-gold-500/30 transition shadow-sm" title="Photo & Media Guide">
+                    <i class="fa-solid fa-folder-open text-gold-400"></i>
+                    <span class="hidden sm:inline font-medium">Assets Guide</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- SECTION 1: LOGIN PAGE -->
+        <section id="loginSection" class="flex-grow flex items-center justify-center p-4 md:p-8 transition-all duration-700">
+            <div class="max-w-md w-full glass-panel rounded-3xl p-6 md:p-8 shadow-gold-glow relative overflow-hidden border border-gold-500/40">
+                <!-- Decorative top heart badge -->
+                <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-burgundy-800 rounded-full border border-gold-500/50 flex items-center justify-center shadow-lg">
+                    <i class="fa-solid fa-heart text-gold-400 text-2xl animate-pulse"></i>
+                </div>
+
+                <div class="mt-4 text-center">
+                    <h1 class="text-2xl md:text-3xl font-serif font-bold gold-gradient-text tracking-wide mb-2">
+                        A Special Surprise for Appa & Amma ❤️
+                    </h1>
+                    <p class="text-xs md:text-sm text-rosegold-300/80 font-sans italic mb-6">
+                        "A lifetime of love, beautifully remembered."
+                    </p>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-4">
+                    <div>
+                        <label for="username" class="block text-xs uppercase tracking-wider text-gold-300 mb-1 font-semibold">Username</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gold-500/60">
+                                <i class="fa-solid fa-user text-sm"></i>
+                            </span>
+                            <input type="text" id="username" required value="AppaAmma"
+                                class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-burgundy-950/80 border border-gold-500/30 text-rose-100 placeholder-burgundy-600 focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition text-sm"
+                                placeholder="Enter Username">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="password" class="block text-xs uppercase tracking-wider text-gold-300 mb-1 font-semibold">Password</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gold-500/60">
+                                <i class="fa-solid fa-key text-sm"></i>
+                            </span>
+                            <input type="password" id="password" required value="Love2004"
+                                class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-burgundy-950/80 border border-gold-500/30 text-rose-100 placeholder-burgundy-600 focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition text-sm"
+                                placeholder="Enter Password">
+                        </div>
+                    </div>
+
+                    <!-- Error Alert Box -->
+                    <div id="loginError" class="hidden text-xs text-rose-400 bg-burgundy-900/90 border border-rose-500/40 p-3 rounded-xl flex items-center space-x-2">
+                        <i class="fa-solid fa-circle-exclamation flex-shrink-0"></i>
+                        <span id="loginErrorMsg">Incorrect username or password. Please try again!</span>
+                    </div>
+
+                    <button type="submit" id="btnLogin"
+                        class="w-full mt-2 py-3 px-6 rounded-xl bg-gradient-to-r from-gold-600 via-gold-500 to-rosegold-500 text-burgundy-950 font-bold text-sm uppercase tracking-wider hover:brightness-110 active:scale-[0.99] transition shadow-gold-glow flex items-center justify-center space-x-2">
+                        <span>Unlock Your Surprise</span>
+                        <i class="fa-solid fa-lock-open text-xs"></i>
+                    </button>
+                </form>
+
+                <!-- Demo Hint & Privacy Notice Footer -->
+                <div class="mt-6 pt-4 border-t border-gold-500/10 text-center text-xs text-rose-200/50 space-y-2">
+                    <p>Demo Login: <span class="text-gold-300 font-mono">AppaAmma</span> / <span class="text-gold-300 font-mono">Love2004</span></p>
+                    <p class="text-[10px] leading-relaxed text-slate-400">
+                        <i class="fa-solid fa-shield-halved text-gold-500/60 mr-1"></i>
+                        <strong>Note on Security:</strong> Client-side authentication is for demonstration & surprise aesthetics. For absolute private memory vaults, server-side authentication (e.g. Firebase Auth, Netlify Identity) is recommended.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: OPENING CINEMATIC SEQUENCE -->
+        <section id="openingSequence" class="hidden fixed inset-0 z-40 bg-burgundy-950 flex flex-col items-center justify-center p-6 text-center">
+            <div id="cinematicTextContainer" class="max-w-2xl space-y-6 transition-all duration-1000">
+                <div id="cinematicStep1" class="transition-all duration-1000 opacity-0 transform translate-y-4">
+                    <p class="text-lg md:text-2xl font-serif italic text-rosegold-300">
+                        "For the two people who mean everything to me…"
+                    </p>
+                </div>
+
+                <div id="cinematicStep2" class="transition-all duration-1000 opacity-0 transform scale-95 my-8">
+                    <div class="relative inline-block my-4">
+                        <i class="fa-solid fa-heart text-5xl md:text-7xl text-gold-500 animate-pulse drop-shadow-[0_0_25px_rgba(212,175,55,0.8)]"></i>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-serif font-extrabold gold-gradient-text tracking-widest uppercase my-2">
+                        JAYAKUMAR <span class="text-rose-400 text-2xl md:text-4xl">&</span> JAYANTHI
+                    </h2>
+                </div>
+
+                <div id="cinematicStep3" class="transition-all duration-1000 opacity-0 transform translate-y-4">
+                    <div class="inline-block px-6 py-2 rounded-full border border-gold-500/40 bg-burgundy-900/60 text-gold-300 font-serif text-sm md:text-lg tracking-widest shadow-gold-glow">
+                        Together Since 01 November 2004
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: 6-STAGE LOVE STORY EXPERIENCE -->
+        <section id="experienceSection" class="hidden flex-grow flex flex-col justify-between max-w-5xl mx-auto w-full px-4 py-4 md:py-6 relative z-20">
+            
+            <!-- STAGE PROGRESS INDICATOR -->
+            <div class="mb-4 md:mb-6">
+                <div class="flex justify-between items-center mb-2">
+                    <span id="stageBadge" class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Stage 1 of 6</span>
+                    <div class="flex items-center space-x-2">
+                        <!-- Auto-Slideshow Toggle -->
+                        <button id="btnToggleSlideshow" onclick="toggleSlideshow()" class="glass-card hover:bg-burgundy-800 text-gold-300 px-3 py-1 rounded-full text-xs flex items-center space-x-1.5 transition border border-gold-500/30">
+                            <i id="slideshowIcon" class="fa-solid fa-play text-[10px]"></i>
+                            <span id="slideshowText">Auto Play</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Progress Bar & Step Dots -->
+                <div class="relative">
+                    <div class="h-1.5 bg-burgundy-900 rounded-full w-full overflow-hidden border border-gold-500/20">
+                        <div id="progressBar" class="h-full bg-gradient-to-r from-gold-600 via-gold-400 to-rosegold-400 w-1/6 transition-all duration-500"></div>
+                    </div>
+                    <div id="stepDots" class="flex justify-between -mt-2.5 px-1">
+                        <!-- Step dots dynamically styled via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- STORY STAGE CAROUSEL CONTENT CONTAINER -->
+            <div class="flex-grow flex items-center justify-center relative min-h-[460px] md:min-h-[500px] my-2">
+                
+                <!-- STAGE 1: THE BEGINNING -->
+                <div id="stage-1" class="story-stage absolute inset-0 flex flex-col md:flex-row items-center gap-6 p-4 md:p-8 glass-panel rounded-3xl border border-gold-500/30 transition-all duration-700">
+                    <div class="w-full md:w-1/2 flex flex-col justify-center space-y-4">
+                        <span class="text-xs font-serif text-gold-400 uppercase tracking-widest">Stage 01 — The Beginning</span>
+                        <h2 class="text-2xl md:text-4xl font-serif font-bold gold-gradient-text">"Every beautiful story begins with two hearts."</h2>
+                        <p class="text-sm md:text-base text-rose-100/80 leading-relaxed font-sans">
+                            On <strong>01 November 2004</strong>, a sacred union united two souls. A simple promise transformed into an eternal journey filled with happiness, mutual respect, and deep devotion.
+                        </p>
+                        <div class="pt-2 flex items-center space-x-3 text-gold-400/80 text-xs font-serif">
+                            <i class="fa-solid fa-calendar-heart text-gold-500 text-lg"></i>
+                            <span>1st November 2004 — Wedding Day</span>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden relative border-2 border-gold-500/40 shadow-gold-glow flex items-center justify-center bg-burgundy-900/60">
+                        <img src="assets/wedding.jpeg" alt="Jayakumar & Jayanthi Wedding Photo" 
+                            class="w-full h-full object-cover"
+                            onerror="handleImageError(this, 'wedding')">
+                    </div>
+                </div>
+
+                <!-- STAGE 2: A PROMISE -->
+                <div id="stage-2" class="story-stage absolute inset-0 flex flex-col md:flex-row items-center gap-6 p-4 md:p-8 glass-panel rounded-3xl border border-gold-500/30 transition-all duration-700 opacity-0 pointer-events-none">
+                    <div class="w-full md:w-1/2 flex flex-col justify-center space-y-4">
+                        <span class="text-xs font-serif text-gold-400 uppercase tracking-widest">Stage 02 — A Promise</span>
+                        <h2 class="text-2xl md:text-4xl font-serif font-bold gold-gradient-text">"Two hearts. One promise. A lifetime together."</h2>
+                        <p class="text-sm md:text-base text-rose-100/80 leading-relaxed font-sans">
+                            Through every high and low, your hand-in-hand bond remained unbreakable. A testament to unwavering loyalty, gentle understanding, and unconditional support.
+                        </p>
+                        <div class="pt-2 flex items-center space-x-2 text-gold-300 text-xs">
+                            <i class="fa-solid fa-rings-wedding text-gold-400 text-lg"></i>
+                            <span>Bonded by love, guided by faith</span>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden relative border-2 border-gold-500/40 shadow-gold-glow flex items-center justify-center bg-burgundy-900/60">
+                        <img src="assets/life.jpeg" alt="Early Married Life Photo" 
+                            class="w-full h-full object-cover"
+                            onerror="handleImageError(this, 'promise')">
+                    </div>
+                </div>
+
+                <!-- STAGE 3: BUILDING A HOME -->
+                <div id="stage-3" class="story-stage absolute inset-0 flex flex-col md:flex-row items-center gap-6 p-4 md:p-8 glass-panel rounded-3xl border border-gold-500/30 transition-all duration-700 opacity-0 pointer-events-none">
+                    <div class="w-full md:w-1/2 flex flex-col justify-center space-y-4">
+                        <span class="text-xs font-serif text-gold-400 uppercase tracking-widest">Stage 03 — Building A Home</span>
+                        <h2 class="text-2xl md:text-4xl font-serif font-bold gold-gradient-text">"Together, you built a home filled with love, patience and care."</h2>
+                        <p class="text-sm md:text-base text-rose-100/80 leading-relaxed font-sans">
+                            A house is built with walls; a home is created with warmth, laughter, sacrifices, and endless love. You created a safe haven where peace always resides.
+                        </p>
+                        <div class="pt-2 flex items-center space-x-2 text-gold-300 text-xs">
+                            <i class="fa-solid fa-house-chimney-heart text-gold-400 text-lg"></i>
+                            <span>The sanctuary of our family</span>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden relative border-2 border-gold-500/40 shadow-gold-glow flex items-center justify-center bg-burgundy-900/60">
+                        <img src="assets/family1.jpeg" alt="Family Moments Photo" 
+                            class="w-full h-full object-cover"
+                            onerror="handleImageError(this, 'home')">
+                    </div>
+                </div>
+
+                <!-- STAGE 4: A PARENT'S LOVE -->
+                <div id="stage-4" class="story-stage absolute inset-0 flex flex-col md:flex-row items-center gap-6 p-4 md:p-8 glass-panel rounded-3xl border border-gold-500/30 transition-all duration-700 opacity-0 pointer-events-none">
+                    <div class="w-full md:w-1/2 flex flex-col justify-center space-y-4">
+                        <span class="text-xs font-serif text-gold-400 uppercase tracking-widest">Stage 04 — A Parent’s Love</span>
+                        <h2 class="text-2xl md:text-4xl font-serif font-bold gold-gradient-text">"Your sacrifices became our strength. Your happiness became our world."</h2>
+                        <p class="text-sm md:text-base text-rose-100/80 leading-relaxed font-sans">
+                            Appa's quiet strength and protection, Amma's endless warmth and nourishing care. You gave everything without ever asking for anything in return.
+                        </p>
+                        <div class="pt-2 flex items-center space-x-2 text-gold-300 text-xs">
+                            <i class="fa-solid fa-hands-holding-child text-gold-400 text-lg"></i>
+                            <span>Our forever pillar of guidance</span>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden relative border-2 border-gold-500/40 shadow-gold-glow flex items-center justify-center bg-burgundy-900/60">
+                        <img src="assets/family2.jpeg" alt="Parents Love Photo" 
+                            class="w-full h-full object-cover"
+                            onerror="handleImageError(this, 'parent')">
+                    </div>
+                </div>
+
+                <!-- STAGE 5: 22 YEARS TOGETHER (TIMELINE) -->
+                <div id="stage-5" class="story-stage absolute inset-0 flex flex-col items-center justify-center p-4 md:p-8 glass-panel rounded-3xl border border-gold-500/30 transition-all duration-700 opacity-0 pointer-events-none text-center">
+                    <span class="text-xs font-serif text-gold-400 uppercase tracking-widest mb-1">Stage 05 — Milestone Celebration</span>
+                    <h2 class="text-2xl md:text-4xl font-serif font-bold gold-gradient-text mb-2">"22 Years of Memories & Unconditional Love"</h2>
+                    <p class="text-xs md:text-sm text-rose-100/80 max-w-xl mb-6">
+                        From 2004 to 2026 — 22 glorious years, 264 months, 1,148 weeks, 8,035 days of shared smiles and eternal commitment.
+                    </p>
+
+                    <!-- Interactive Golden Timeline -->
+                    <div class="w-full max-w-2xl py-4 my-2">
+                        <div class="relative flex justify-between items-center">
+                            <!-- Line -->
+                            <div class="absolute top-1/2 left-0 right-0 h-1 bg-burgundy-800 -translate-y-1/2 z-0 border-t border-b border-gold-500/30"></div>
+                            
+                            <!-- 2004 Node -->
+                            <div class="relative z-10 flex flex-col items-center group cursor-pointer" onclick="showTimelineDetail('2004')">
+                                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-burgundy-900 border-2 border-gold-400 flex items-center justify-center shadow-gold-glow group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-heart text-rose-400 text-sm md:text-base"></i>
+                                </div>
+                                <span class="text-xs font-bold text-gold-300 mt-2">2004</span>
+                                <span class="text-[10px] text-rose-200/60 hidden sm:block">Wedding</span>
+                            </div>
+
+                            <!-- 2010 Node -->
+                            <div class="relative z-10 flex flex-col items-center group cursor-pointer" onclick="showTimelineDetail('2010')">
+                                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-burgundy-900 border-2 border-gold-400/80 flex items-center justify-center shadow-gold-glow group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-seedling text-gold-400 text-sm md:text-base"></i>
+                                </div>
+                                <span class="text-xs font-bold text-gold-300 mt-2">2010</span>
+                                <span class="text-[10px] text-rose-200/60 hidden sm:block">Growing Home</span>
+                            </div>
+
+                            <!-- 2018 Node -->
+                            <div class="relative z-10 flex flex-col items-center group cursor-pointer" onclick="showTimelineDetail('2018')">
+                                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-burgundy-900 border-2 border-gold-400/80 flex items-center justify-center shadow-gold-glow group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-gem text-rosegold-400 text-sm md:text-base"></i>
+                                </div>
+                                <span class="text-xs font-bold text-gold-300 mt-2">2018</span>
+                                <span class="text-[10px] text-rose-200/60 hidden sm:block">Strength & Grace</span>
+                            </div>
+
+                            <!-- 2026 Milestone Node -->
+                            <div class="relative z-10 flex flex-col items-center group cursor-pointer" onclick="showTimelineDetail('2026')">
+                                <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gold-500 border-2 border-amber-200 flex items-center justify-center shadow-gold-glow-lg group-hover:scale-110 transition animate-pulse">
+                                    <i class="fa-solid fa-crown text-burgundy-950 text-base md:text-lg"></i>
+                                </div>
+                                <span class="text-xs font-extrabold text-gold-300 mt-2">2026</span>
+                                <span class="text-[10px] text-gold-400 font-bold hidden sm:block">22 Years!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Timeline Detail Box -->
+                    <div id="timelineDetailBox" class="mt-4 p-3 md:p-4 rounded-xl glass-card border border-gold-500/30 text-xs md:text-sm text-rose-100 max-w-md w-full">
+                        <p class="font-serif italic text-gold-300" id="timelineText">
+                            Click any milestone above to view special memories. Currently celebrating 22 magnificent years in 2026!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- STAGE 6: MESSAGE FROM THEIR CHILD (TAMIL MESSAGE) -->
+                <div id="stage-6" class="story-stage absolute inset-0 flex flex-col items-center justify-center p-4 md:p-8 glass-panel rounded-3xl border-2 border-gold-500/50 transition-all duration-700 opacity-0 pointer-events-none text-center overflow-y-auto">
+                    
+                    <span class="text-xs font-serif text-gold-400 uppercase tracking-widest mb-2">Stage 06 — Heartfelt Blessing</span>
+                    
+                    <div class="max-w-2xl w-full bg-burgundy-900/80 p-6 md:p-8 rounded-2xl border border-gold-500/40 shadow-gold-glow space-y-4 my-2">
+                        
+                        <!-- Tamil Greeting Box -->
+                        <div class="tamil-text text-base md:text-xl text-gold-100 space-y-3 font-medium leading-relaxed">
+                            <p class="text-xl md:text-2xl font-bold gold-gradient-text mb-3">
+                                என் அன்பு அப்பா அம்மாவுக்கு ❤️
+                            </p>
+                            <p>இரண்டு மனங்கள் இணைந்து,<br>என் உலகத்தை உருவாக்கிய நாள் இது.</p>
+                            <p class="text-rosegold-300">உங்களோட அன்புதான் என் பலம்.<br>உங்களோட சந்தோஷம்தான் என் உலகம்.</p>
+                            <p>எத்தனை ஜென்மம் எடுத்தாலும்,<br>உங்க பிள்ளையாவே பிறக்கணும்.</p>
+                            <p class="text-gold-300 font-semibold pt-2">
+                                இனிய 22-வது திருமண நாள் வாழ்த்துகள்,<br>அப்பா & அம்மா! ❤️🙏
+                            </p>
+                            <p class="text-sm md:text-base text-rose-200/80 pt-2 italic">
+                                உங்களை என்றும் நேசிக்கும்,<br><span class="font-bold text-gold-400">உங்கள் மகன்.</span>
+                            </p>
+                        </div>
+
+                        <!-- Grand Closing Highlight -->
+                        <div class="pt-4 border-t border-gold-500/30">
+                            <h3 class="text-lg md:text-2xl font-serif font-extrabold gold-gradient-text tracking-wider uppercase animate-pulse">
+                                "YOUR LOVE IS MY GREATEST BLESSING."
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Video Container (Renders if assets/anniversary-video.mp4 exists or shows fallback frame) -->
+                    <div class="w-full max-w-lg mt-4">
+                        <div class="relative rounded-xl overflow-hidden border border-gold-500/40 bg-burgundy-950 p-2 shadow-lg">
+                            <video id="anniversaryVideo" controls class="w-full rounded-lg " onerror="handleVideoError()">
+                                <source src="assets/anniversary-video.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div id="videoFallback" class="p-4 text-center text-xs text-rose-200/60 space-y-1">
+                                <p><i class="fa-solid fa-film text-gold-400 text-base mb-1"></i></p>
+                                <p class="font-serif italic">"A thousand memories captured in our hearts forever."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Replay Button -->
+                    <button onclick="replayStory()" class="mt-4 px-6 py-2.5 rounded-full bg-gradient-to-r from-gold-600 to-rosegold-500 text-burgundy-950 font-bold text-xs uppercase tracking-wider hover:brightness-110 transition shadow-gold-glow flex items-center space-x-2">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <span>Replay Our Story</span>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- CAROUSEL NAVIGATION CONTROLS -->
+            <div class="flex justify-between items-center mt-2 md:mt-4 pt-2 border-t border-gold-500/15">
+                <button id="btnPrev" onclick="navigateStage(-1)" class="glass-card hover:bg-burgundy-800 disabled:opacity-30 disabled:pointer-events-none text-gold-300 px-4 py-2 rounded-xl text-xs md:text-sm font-medium flex items-center space-x-2 transition border border-gold-500/30">
+                    <i class="fa-solid fa-chevron-left text-xs"></i>
+                    <span>Previous</span>
+                </button>
+
+                <div id="stageCounterText" class="text-xs font-serif text-gold-400/80">
+                    1 / 6
+                </div>
+
+                <button id="btnNext" onclick="navigateStage(1)" class="bg-gradient-to-r from-gold-600 to-gold-500 hover:brightness-110 text-burgundy-950 px-5 py-2 rounded-xl text-xs md:text-sm font-bold flex items-center space-x-2 transition shadow-gold-glow">
+                    <span>Next</span>
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </button>
+            </div>
+
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="p-3 text-center text-[11px] text-rose-200/40 font-serif z-20">
+            Crafted with heart for Appa (Jayakumar) & Amma (Jayanthi) • 22 Years of Togetherness
+        </footer>
+
+    </div>
+
+    <!-- PHOTO & MEDIA ASSET GUIDE MODAL / DRAWER -->
+    <div id="guideModal" class="fixed inset-0 z-50 bg-burgundy-950/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="max-w-lg w-full glass-panel rounded-3xl p-6 border border-gold-500/40 shadow-gold-glow-lg max-h-[90vh] overflow-y-auto space-y-4">
+            <div class="flex justify-between items-center border-b border-gold-500/20 pb-3">
+                <h3 class="text-lg font-serif font-bold text-gold-300 flex items-center space-x-2">
+                    <i class="fa-solid fa-photo-film text-gold-400"></i>
+                    <span>Personalizing Photos & Audio</span>
+                </h3>
+                <button onclick="closeGuideModal()" class="text-rose-200/60 hover:text-gold-300 text-xl font-bold focus:outline-none">&times;</button>
+            </div>
+
+            <div class="text-xs text-rose-100/80 space-y-3 leading-relaxed">
+                <p>
+                    You can easily add your real family photographs and background music by placing files in an <code class="bg-burgundy-900 text-gold-300 px-1.5 py-0.5 rounded border border-gold-500/30">assets/</code> folder alongside this <code class="bg-burgundy-900 text-gold-300 px-1.5 py-0.5 rounded border border-gold-500/30">index.html</code> file.
+                </p>
+
+                <div class="bg-burgundy-900/90 p-3 rounded-xl border border-gold-500/20 space-y-2">
+                    <p class="font-bold text-gold-400 uppercase tracking-wider text-[10px]">Expected File Structure:</p>
+                    <ul class="space-y-1.5 font-mono text-[11px] text-slate-300">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-regular fa-image text-gold-400"></i>
+                            <span>assets/wedding.jpg <span class="text-rose-300/60">(Stage 1)</span></span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-regular fa-image text-gold-400"></i>
+                            <span>assets/early-life.jpg <span class="text-rose-300/60">(Stage 2)</span></span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-regular fa-image text-gold-400"></i>
+                            <span>assets/family1.jpg <span class="text-rose-300/60">(Stage 3)</span></span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-regular fa-image text-gold-400"></i>
+                            <span>assets/family2.jpg <span class="text-rose-300/60">(Stage 4)</span></span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-music text-gold-400"></i>
+                            <span>assets/anniversary-music.mp3 <span class="text-rose-300/60">(Audio)</span></span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-video text-gold-400"></i>
+                            <span>assets/anniversary-video.mp4 <span class="text-rose-300/60">(Optional Video)</span></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <p class="text-[11px] text-rosegold-300 italic">
+                    ✨ Note: Beautiful CSS illustration frames are automatically displayed as fallbacks whenever local photo or video files are not detected!
+                </p>
+            </div>
+
+            <div class="pt-2 text-right">
+                <button onclick="closeGuideModal()" class="px-5 py-2 rounded-xl bg-gold-500 text-burgundy-950 font-bold text-xs uppercase hover:bg-gold-400 transition">
+                    Got it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUDIO PLAYER TAG -->
+    <audio id="bgAudio" loop preload="auto">
+        <source src="assets/anniversary-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- MAIN JAVASCRIPT LOGIC -->
+    <script>
+        /* Global App State */
+        let currentStage = 1;
+        const totalStages = 6;
+        let isSlideshowActive = false;
+        let slideshowTimer = null;
+        let audioSynthPlaying = false;
+        let audioContext = null;
+
+        /* Particle Canvas System */
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + Math.random() * 20;
+                this.size = Math.random() * 3 + 1;
+                this.speedY = Math.random() * 0.8 + 0.3;
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.opacity = Math.random() * 0.7 + 0.2;
+                this.isHeart = Math.random() < 0.25; // 25% hearts, 75% golden sparkles
+                this.color = Math.random() < 0.6 ? '#e5c158' : '#b76e79';
+            }
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+                if (this.y < -10) this.reset();
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = this.color;
+                if (this.isHeart) {
+                    ctx.font = `${this.size * 3 + 6}px serif`;
+                    ctx.fillText('♥', this.x, this.y);
+                } else {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const particleCount = Math.min(Math.floor(window.innerWidth / 15), 60);
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        /* LOGIN HANDLER */
+        function handleLogin(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value.trim();
+            const pass = document.getElementById('password').value.trim();
+            const errorBox = document.getElementById('loginError');
+
+            if (user === 'AppaAmma' && pass === 'Love2004') {
+                errorBox.classList.add('hidden');
+                
+                // Start background ambient sound on user login trigger
+                startAudio();
+
+                // Transition out login, start opening sequence
+                const loginSec = document.getElementById('loginSection');
+                loginSec.classList.add('fade-exit', 'fade-exit-active');
+                
+                setTimeout(() => {
+                    loginSec.classList.add('hidden');
+                    runOpeningSequence();
+                }, 600);
+            } else {
+                errorBox.classList.remove('hidden');
+                document.getElementById('loginErrorMsg').textContent = "Incorrect password! Hint: Use AppaAmma / Love2004";
+            }
+        }
+
+        /* OPENING CINEMATIC SEQUENCE */
+        function runOpeningSequence() {
+            const openingSec = document.getElementById('openingSequence');
+            openingSec.classList.remove('hidden');
+
+            const s1 = document.getElementById('cinematicStep1');
+            const s2 = document.getElementById('cinematicStep2');
+            const s3 = document.getElementById('cinematicStep3');
+
+            // Timeline reveals
+            setTimeout(() => { s1.classList.remove('opacity-0', 'translate-y-4'); }, 400);
+            setTimeout(() => { s2.classList.remove('opacity-0', 'scale-95'); }, 2200);
+            setTimeout(() => { s3.classList.remove('opacity-0', 'translate-y-4'); }, 4200);
+
+            // Transition to main 6-stage story
+            setTimeout(() => {
+                openingSec.classList.add('transition-opacity', 'duration-1000', 'opacity-0');
+                setTimeout(() => {
+                    openingSec.classList.add('hidden');
+                    document.getElementById('experienceSection').classList.remove('hidden');
+                    renderStepDots();
+                    updateStageView();
+                }, 1000);
+            }, 7200);
+        }
+
+        /* STAGE CAROUSEL CONTROLLER */
+        function renderStepDots() {
+            const dotsContainer = document.getElementById('stepDots');
+            dotsContainer.innerHTML = '';
+            for (let i = 1; i <= totalStages; i++) {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.setAttribute('aria-label', `Go to Stage ${i}`);
+                dot.className = `w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold transition-all ${
+                    i === currentStage 
+                        ? 'bg-gold-500 text-burgundy-950 scale-110 shadow-gold-glow' 
+                        : 'bg-burgundy-900 border border-gold-500/30 text-rose-200/60 hover:border-gold-400'
+                }`;
+                dot.innerHTML = i;
+                dot.onclick = () => jumpToStage(i);
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateStageView() {
+            // Update progress bar
+            const percent = (currentStage / totalStages) * 100;
+            document.getElementById('progressBar').style.width = `${percent}%`;
+            document.getElementById('stageBadge').textContent = `Stage ${currentStage} of ${totalStages}`;
+            document.getElementById('stageCounterText').textContent = `${currentStage} / ${totalStages}`;
+
+            // Button state
+            document.getElementById('btnPrev').disabled = (currentStage === 1);
+            const btnNext = document.getElementById('btnNext');
+            if (currentStage === totalStages) {
+                btnNext.innerHTML = '<span>Finish</span> <i class="fa-solid fa-check text-xs"></i>';
+            } else {
+                btnNext.innerHTML = '<span>Next</span> <i class="fa-solid fa-chevron-right text-xs"></i>';
+            }
+
+            // Animate stage visible states
+            for (let i = 1; i <= totalStages; i++) {
+                const stageEl = document.getElementById(`stage-${i}`);
+                if (stageEl) {
+                    if (i === currentStage) {
+                        stageEl.classList.remove('opacity-0', 'pointer-events-none');
+                        stageEl.classList.add('opacity-100');
+                    } else {
+                        stageEl.classList.add('opacity-0', 'pointer-events-none');
+                        stageEl.classList.remove('opacity-100');
+                    }
+                }
+            }
+
+            renderStepDots();
+        }
+
+        function navigateStage(direction) {
+            currentStage += direction;
+            if (currentStage < 1) currentStage = 1;
+            if (currentStage > totalStages) currentStage = totalStages;
+            updateStageView();
+        }
+
+        function jumpToStage(stageNum) {
+            currentStage = stageNum;
+            updateStageView();
+        }
+
+        function replayStory() {
+            currentStage = 1;
+            updateStageView();
+        }
+
+        /* AUTO SLIDESHOW MODE */
+        function toggleSlideshow() {
+            isSlideshowActive = !isSlideshowActive;
+            const btn = document.getElementById('btnToggleSlideshow');
+            const icon = document.getElementById('slideshowIcon');
+            const text = document.getElementById('slideshowText');
+
+            if (isSlideshowActive) {
+                icon.className = 'fa-solid fa-pause text-[10px]';
+                text.textContent = 'Pause';
+                btn.classList.add('bg-gold-500', 'text-burgundy-950');
+                
+                slideshowTimer = setInterval(() => {
+                    if (currentStage < totalStages) {
+                        navigateStage(1);
+                    } else {
+                        currentStage = 1;
+                        updateStageView();
+                    }
+                }, 5000); // Advance every 5 seconds
+            } else {
+                icon.className = 'fa-solid fa-play text-[10px]';
+                text.textContent = 'Auto Play';
+                btn.classList.remove('bg-gold-500', 'text-burgundy-950');
+                clearInterval(slideshowTimer);
+            }
+        }
+
+        /* TIMELINE DETAILS INTERACTIVITY */
+        function showTimelineDetail(year) {
+            const txt = document.getElementById('timelineText');
+            switch (year) {
+                case '2004':
+                    txt.innerHTML = "<strong>2004:</strong> The grand wedding day on November 01. The starting point of an incredible journey.";
+                    break;
+                case '2010':
+                    txt.innerHTML = "<strong>2010:</strong> Building a warm household filled with patience, early childhood memories, and devotion.";
+                    break;
+                case '2018':
+                    txt.innerHTML = "<strong>2018:</strong> Years of sacrifice bearing sweet fruit as children grow under your unconditional love.";
+                    break;
+                case '2026':
+                    txt.innerHTML = "<strong>2026:</strong> 22 Golden Years! A glorious milestone of love, guidance, and blessing.";
+                    break;
+            }
+        }
+
+        /* AUDIO SYSTEM & FALLBACK SYNTH */
+        const bgAudio = document.getElementById('bgAudio');
+        const btnPlayPause = document.getElementById('btnPlayPause');
+        const musicIcon = document.getElementById('musicIcon');
+        const btnMute = document.getElementById('btnMute');
+        const volumeIcon = document.getElementById('volumeIcon');
+        const volumeSlider = document.getElementById('volumeSlider');
+
+        function startAudio() {
+            bgAudio.play().then(() => {
+                musicIcon.className = 'fa-solid fa-compact-disc animate-spin text-gold-400';
+            }).catch(err => {
+                // If local mp3 audio missing or blocked, initialize Web Audio Synth fallback
+                console.log("Audio file fallback active:", err);
+                initSynthMelody();
+            });
+        }
+
+        btnPlayPause.onclick = () => {
+            if (bgAudio.paused && !audioSynthPlaying) {
+                bgAudio.play().then(() => {
+                    musicIcon.className = 'fa-solid fa-compact-disc animate-spin text-gold-400';
+                }).catch(() => {
+                    toggleSynthMelody(true);
+                });
+            } else {
+                bgAudio.pause();
+                toggleSynthMelody(false);
+                musicIcon.className = 'fa-solid fa-music text-gold-400';
+            }
+        };
+
+        btnMute.onclick = () => {
+            bgAudio.muted = !bgAudio.muted;
+            if (bgAudio.muted) {
+                volumeIcon.className = 'fa-solid fa-volume-xmark text-rose-400';
+            } else {
+                volumeIcon.className = 'fa-solid fa-volume-high text-gold-400';
+            }
+        };
+
+        volumeSlider.oninput = (e) => {
+            bgAudio.volume = e.target.value;
+        };
+
+        /* WEB AUDIO API SYNTHESIZER FALLBACK (Plays gentle romantic chime scale if MP3 absent) */
+        function initSynthMelody() {
+            toggleSynthMelody(true);
+        }
+
+        function toggleSynthMelody(enable) {
+            audioSynthPlaying = enable;
+            if (enable) {
+                musicIcon.className = 'fa-solid fa-compact-disc animate-spin text-gold-400';
+                if (!audioContext) {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                playRomanticArpeggio();
+            } else {
+                musicIcon.className = 'fa-solid fa-music text-gold-400';
+            }
+        }
+
+        function playRomanticArpeggio() {
+            if (!audioSynthPlaying || !audioContext) return;
+            
+            const notes = [261.63, 329.63, 392.00, 493.88, 523.25, 659.25]; // C, E, G, B, C, E
+            const note = notes[Math.floor(Math.random() * notes.length)];
+            
+            const osc = audioContext.createOscillator();
+            const gain = audioContext.createGain();
+            
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(note, audioContext.currentTime);
+            
+            gain.gain.setValueAtTime(0.01, audioContext.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.08, audioContext.currentTime + 0.2);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 2.5);
+            
+            osc.connect(gain);
+            gain.connect(audioContext.destination);
+            
+            osc.start();
+            osc.stop(audioContext.currentTime + 2.6);
+
+            setTimeout(playRomanticArpeggio, 800 + Math.random() * 400);
+        }
+
+        /* IMAGE ERROR FALLBACK (Creates custom inline SVG vector illustrations if assets/ missing) */
+        function handleImageError(imgEl, theme) {
+            const parent = imgEl.parentElement;
+            let svgIcon = 'fa-heart';
+            let title = 'Jayakumar & Jayanthi';
+
+            if (theme === 'wedding') {
+                svgIcon = 'fa-rings-wedding';
+                title = 'Wedding Day • 01 Nov 2004';
+            } else if (theme === 'promise') {
+                svgIcon = 'fa-hands-holding-heart';
+                title = 'Lifetime Promise';
+            } else if (theme === 'home') {
+                svgIcon = 'fa-house-heart';
+                title = 'Our Loving Home';
+            } else if (theme === 'parent') {
+                svgIcon = 'fa-people-roof';
+                title = 'Parental Love';
+            }
+
+            parent.innerHTML = `
+                <div class="flex flex-col items-center justify-center text-center p-6 space-y-3">
+                    <div class="w-16 h-16 rounded-full bg-burgundy-800 border border-gold-500/50 flex items-center justify-center shadow-gold-glow animate-pulse-gold">
+                        <i class="fa-solid ${svgIcon} text-2xl text-gold-400"></i>
+                    </div>
+                    <p class="font-serif font-bold text-gold-300 text-sm md:text-base">${title}</p>
+                    <p class="text-[11px] text-rose-200/50 max-w-xs italic">
+                        Place your real photo at <code class="text-gold-400 font-mono">assets/${theme === 'wedding' ? 'wedding.jpg' : theme === 'promise' ? 'early-life.jpg' : theme === 'home' ? 'family1.jpg' : 'family2.jpg'}</code> to replace this illustration!
+                    </p>
+                </div>
+            `;
+        }
+
+        function handleVideoError() {
+            document.getElementById('anniversaryVideo').classList.add('hidden');
+            document.getElementById('videoFallback').classList.remove('hidden');
+        }
+
+        /* MODAL CONTROLS */
+        document.getElementById('btnOpenGuide').onclick = () => {
+            const modal = document.getElementById('guideModal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+        };
+
+        function closeGuideModal() {
+            const modal = document.getElementById('guideModal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        /* KEYBOARD NAVIGATION ACCESSIBILITY */
+        window.addEventListener('keydown', (e) => {
+            if (document.getElementById('experienceSection').classList.contains('hidden')) return;
+            if (e.key === 'ArrowRight') navigateStage(1);
+            if (e.key === 'ArrowLeft') navigateStage(-1);
+            if (e.key === ' ') toggleSlideshow();
+        });
+
+        /* INITIALIZATION */
+        window.onload = function() {
+            initParticles();
+            animateParticles();
+        };
+    </script>
+</body>
+</html>
